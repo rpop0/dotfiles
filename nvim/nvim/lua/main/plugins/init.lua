@@ -13,5 +13,6 @@ return {
         config = function ()
             require('leap').create_default_mappings()
         end
-    }
+    },
+    'dstein64/nvim-scrollview'
 }
