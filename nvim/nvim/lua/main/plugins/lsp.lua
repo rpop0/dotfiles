@@ -58,7 +58,7 @@ lsp_config.config = function ()
         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-        vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, opts)
+        vim.keymap.set('n', '<leader>fc', function() vim.lsp.buf.format { async = true } end, opts)
     end)
 
     require('mason-lspconfig').setup({
