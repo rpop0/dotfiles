@@ -16,5 +16,12 @@ return {
             leap.opts.safe_labels = {}
         end
     },
-    'dstein64/nvim-scrollview'
+    'dstein64/nvim-scrollview',
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+
+        },
+        lazy = false
+    }
 }
