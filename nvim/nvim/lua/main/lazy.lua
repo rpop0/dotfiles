@@ -11,5 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("main.plugins");
+require("lazy").setup({
+    {
+        import = 'main.plugins'
+    },
+    {
+        import = 'main.plugins.lang'
+    }
+});
 
