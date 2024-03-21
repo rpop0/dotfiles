@@ -63,7 +63,7 @@ lsp_config.config = function ()
 
     require('mason-lspconfig').setup({
         -- Use :PylspInstall for mypy
-        ensure_installed = {'pylsp', 'debugpy', 'ruff_lsp', 'tsserver', 'cssls', 'html'},
+        ensure_installed = {'pylsp', 'ruff_lsp', 'tsserver', 'cssls', 'html'},
         handlers = {
             lsp_zero.default_setup,
             pylsp = setup_pylsp,
