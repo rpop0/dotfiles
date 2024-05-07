@@ -8,10 +8,21 @@ return {
 
     config = function()
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-        vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+        local wk = require("which-key")
+
+        wk.register({
+            ["<leader>f"] = {
+                name = "+find",
+                f = {builtin.find_files, "Find file"},
+                g = {builtin.live_grep, "Live grep"},
+                b = {builtin.buffers, "Search buffers"},
+                h = {builtin.help_tags, "Search help"},
+                r = {builtin.lsp_references, "Code references"},
+                d = {builtin.lsp_definitions, "Code definitions"},
+                i = {builtin.lsp_implementations, "Code implementations"}
+
+            }
+        })
 
         require('telescope').setup {
             defaults = {

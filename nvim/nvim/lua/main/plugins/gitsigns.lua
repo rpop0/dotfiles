@@ -4,11 +4,18 @@ return {
         require('gitsigns').setup{
             on_attach = function ()
                 local gs = package.loaded.gitsigns
-                vim.keymap.set('n', '<leader>hp', gs.preview_hunk)
-                vim.keymap.set('n', '<leader>hr', gs.reset_hunk)
-                vim.keymap.set('n', '<leader>tb', gs.toggle_current_line_blame)
-                vim.keymap.set('n', '<leader>hb', function() gs.blame_line{full=true} end)
-                vim.keymap.set('n', '<leader>hs', gs.stage_hunk)
+                local wk = require("which-key")
+
+                wk.register({
+                    ["<leader>g"] = { name = "+git"},
+                    ["<leader>gp"] = { gs.preview_hunk, "Preview hunk" },
+                    ["<leader>gr"] = { gs.reset_hunk, "Reset hunk" },
+                    ["<leader>gb"] = { function() gs.blame_line{fulll=true} end, "Git blame hunk" },
+                    ["<leader>gs"] = { gs.stage_hunk, "Stage hunk" },
+                    ["<leader>gu"] = { gs.undo_stage_hunk, "Undo stage hunk"},
+                    ["<leader>gd"] = { gs.diffthis, "Show diffs"},
+
+                })
 
                 -- Text objects
                 vim.keymap.set('o', 'ih', ':<C-U>Gitsigns select_hunk<CR>')

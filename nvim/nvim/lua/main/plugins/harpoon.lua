@@ -1,7 +1,7 @@
 return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    dependencies = { 
+    dependencies = {
         'nvim-lua/plenary.nvim',
     },
     config = function()
@@ -11,7 +11,7 @@ return {
         harpoon:setup()
         -- REQUIRED
 
-        vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+        vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end, { desc = "Harpoon add"})
         vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
         vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)

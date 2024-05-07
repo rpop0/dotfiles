@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex, { desc = "File list"})
 
 
 -- Allows moving selected blocks in visual mode up and down
@@ -18,17 +18,17 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- Leader P deletes a highligted word without yanking it.
-vim.keymap.set("x", "<leader>p", "\"_dP")
-vim.keymap.set("x", "<leader>x", "\"_d")
+vim.keymap.set("x", "<leader>p", "\"_dP", { desc = "Paste over selection without yanking"})
+vim.keymap.set("x", "<leader>x", "\"_d", { desc = "Delete selection without yanking."})
 
 -- Leader y yanks into system clipboard
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
-vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank selection into system clipboard."})
+vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank line into system clipboard"})
+vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank into system clipboard"})
 
 
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Start replacing word you are on
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace current word'})
 

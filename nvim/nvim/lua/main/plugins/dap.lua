@@ -18,9 +18,13 @@ local debug_plugins = {
             }
         },
         config = function ()
-            vim.keymap.set('n', '<leader>db', function() require('dap').toggle_breakpoint() end)
-            vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end)
-            vim.keymap.set('n', '<leader>dt', function() require('dap').terminate() end)
+            local wk = require('which-key')
+            wk.register({
+                ["<leader>d"] = { name = "+dap"},
+                ["<leader>db"] = {function() require('dap').toggle_breakpoint() end, "Breakpoint"},
+                ["<leader>dc"] = {function() require('dap').continue() end, "Continue"},
+                ["<leader>dt"] = {function() require('dap').terminate() end, "Terminate"}
+            })
         end
     }
 
