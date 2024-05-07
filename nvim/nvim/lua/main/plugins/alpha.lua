@@ -22,7 +22,7 @@ return {
                 dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
                 dashboard.button("SPC f f", "󰱼  Find file"),
                 dashboard.button("SPC f g", "󰊄  Live grep"),
-                dashboard.button("c", "  Settings", ":e $HOME/.config/nvim<CR>"),
+                dashboard.button("c", "  Settings", "<cmd>cd $HOME/.config/nvim<CR> | :e .<CR>"),
                 dashboard.button("q", "  Quit", ":qa<CR>"),
             }
 

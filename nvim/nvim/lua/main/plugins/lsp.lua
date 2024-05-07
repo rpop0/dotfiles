@@ -46,7 +46,6 @@ lsp_config.config = function ()
     local wk = require('which-key')
 
     lsp_zero.on_attach(function(client, bufnr)
-        require('lsp_signature').on_attach({}, bufnr);
 
         wk.register({
             ["<leader>c"] = {

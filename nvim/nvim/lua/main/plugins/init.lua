@@ -13,9 +13,9 @@ return {
         },
         lazy = false
     },
-    {
-        'ray-x/lsp_signature.nvim',
-        event = "VeryLazy",
-        opts = {},
-    },
+    -- {
+    --     'ray-x/lsp_signature.nvim',
+    --     event = "VeryLazy",
+    --     opts = {},
+    -- },
 }
