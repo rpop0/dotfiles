@@ -46,7 +46,8 @@ lsp_config.config = function ()
     local wk = require('which-key')
 
     lsp_zero.on_attach(function(client, bufnr)
-        local opts = {buffer = bufnr, remap = false}
+        require('lsp_signature').on_attach({}, bufnr);
+
         wk.register({
             ["<leader>c"] = {
                 name = "+code",
@@ -59,7 +60,6 @@ lsp_config.config = function ()
 
             }
         })
-
         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, remap = false, desc = "Next diagnostic"})
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, remap = false, desc = "Previous diagnostic"})
 
