@@ -31,11 +31,6 @@ local telescope = {
                     "node_modules",
                     "venv"
                 }
-            },
-            extensions = {
-                file_browser = {
-                    hijack_netrw = true
-                }
             }
         }
 
