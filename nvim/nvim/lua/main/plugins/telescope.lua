@@ -1,6 +1,6 @@
-return {
+local telescope = {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.5',
+    tag = '0.1.6',
 
     dependencies = {
         'nvim-lua/plenary.nvim',
@@ -20,9 +20,10 @@ return {
                 r = {builtin.lsp_references, "Code references"},
                 d = {builtin.lsp_definitions, "Code definitions"},
                 i = {builtin.lsp_implementations, "Code implementations"}
-
-            }
+            },
         })
+
+        vim.keymap.set('n', '<leader>pv', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
 
         require('telescope').setup {
             defaults = {
@@ -30,7 +31,21 @@ return {
                     "node_modules",
                     "venv"
                 }
+            },
+            extensions = {
+                file_browser = {
+                    hijack_netrw = true
+                }
             }
         }
+
+        require('telescope').load_extension "file_browser"
     end
 }
+
+local telescope_file_browser = {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}
+}
+
+return {telescope, telescope_file_browser}
