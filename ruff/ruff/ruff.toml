@@ -1,0 +1,58 @@
+line-length = 120
+
+[lint]
+select = [
+    "ALL",
+]
+
+ignore = [
+    "S101", # assert
+    "T201", # print
+
+
+    # Ignored for ruff formatter https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+    "W191",
+    "E111",
+    "E114",
+    "E117",
+    "D206",
+    "D300",
+    "Q000",
+    "Q001",
+    "Q002",
+    "Q003",
+    "COM812",
+    "COM819",
+    "ISC001",
+    "ISC002",
+
+
+    # Docstring rules ignored for now
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "D200",
+    "D203",
+    "D205",
+    "D212",
+    "D400",
+    "D401",
+    "D415",
+
+    "ANN101", # self type annotation
+    "ANN102", # cls type annotation
+    "FIX002", # to-do messages
+    "TD001",
+    "TD002",
+    "TD003",
+    "TD004",
+    "TD005"
+]
+
+[format]
+quote-style = 'single'
