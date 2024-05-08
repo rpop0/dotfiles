@@ -1,4 +1,3 @@
-
 local lsp_zero_plugin = {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
@@ -20,57 +19,56 @@ local lsp_config = {
         'williamboman/mason-lspconfig.nvim'
     }
 }
-local setup_pylsp = function ()
-    require('lspconfig').pylsp.setup{
+local setup_basedpyright = function()
+    require('lspconfig').basedpyright.setup {
         settings = {
-            pylsp = {
-                plugins = {
-                    pylint = {enabled = false},
-                    pyflakes = {enabled = false},
-                    pycodestyle = {enabled = false},
-                    autopep8 = {enabled = false},
-                    mccabe = {enabled = false},
-                    yapf = {enabled = false},
-                    flake8 = {enabled = false},
-                    pydocstyle = {enabled = false},
-                    jedi_completion = { fuzzy = true }
-
+            basedpyright = {
+                disableOrganizeImports = true, -- ruff_lsp
+                analysis = {
+                    typeCheckingMode = 'all',
+                    diagnosticSeverityOverrides = { -- Disabled diagnostics due to ruff conflicts
+                        reportUnusedVariable = 'none',
+                        reportUndefinedVariable = 'none',
+                    }
                 }
-            }
+            },
         }
+
     }
 end
 
-lsp_config.config = function ()
+lsp_config.config = function()
     local lsp_zero = require('lsp-zero')
     local wk = require('which-key')
 
     lsp_zero.on_attach(function(client, bufnr)
-
         wk.register({
             ["<leader>c"] = {
                 name = "+code",
                 g = { function() vim.lsp.buf.definition() end, "Go to definition", remap = false, buffer = bufnr },
                 h = { function() vim.lsp.buf.hover() end, "Hover", remap = false, buffer = bufnr },
-                f = { function() vim.lsp.buf.format { async = true } end, "Format", remap = false, buffer = bufnr },
+                f = { function() vim.lsp.buf.format({ async = true }) end, "Format", remap = false, buffer = bufnr },
                 d = { function() vim.diagnostic.open_float() end, "Diagostic", remap = false, buffer = bufnr },
                 r = { function() vim.lsp.buf.rename() end, "Rename", remap = false, buffer = bufnr },
-                a = { function() vim.lsp.buf.code_action() end, "Code actions", remap = false, buffer = bufnr}
+                a = { function() vim.lsp.buf.code_action() end, "Code actions", remap = false, buffer = bufnr }
 
             }
         })
-        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, remap = false, desc = "Next diagnostic"})
-        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, remap = false, desc = "Previous diagnostic"})
-
+        vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end,
+            { buffer = bufnr, remap = false, desc = "Next diagnostic" })
+        vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end,
+            { buffer = bufnr, remap = false, desc = "Previous diagnostic" })
     end)
 
     require('mason-lspconfig').setup({
-        -- Use :PylspInstall for mypy
-        ensure_installed = {'pylsp', 'ruff_lsp', 'tsserver', 'cssls', 'html'},
+        ensure_installed = { 'basedpyright', 'ruff', 'tsserver', 'cssls', 'html' },
         handlers = {
-            lsp_zero.default_setup,
-            pylsp = setup_pylsp,
-            lua_ls = function ()
+            function(server_name)
+                require('lspconfig')[server_name].setup({})
+            end,
+
+            basedpyright = setup_basedpyright,
+            lua_ls = function()
                 local lua_opts = lsp_zero.nvim_lua_ls()
                 require('lspconfig').lua_ls.setup(lua_opts)
             end
