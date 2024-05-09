@@ -13,6 +13,7 @@ return {
             local cmp = require('cmp')
             local cmp_autopairs = require('nvim-autopairs.completion.cmp')
             local cmp_select = {behavior = cmp.SelectBehavior.Select}
+            require("luasnip.loaders.from_vscode").lazy_load()
 
             cmp.setup({
                 sources = {
