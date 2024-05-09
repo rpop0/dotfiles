@@ -30,5 +30,16 @@ vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank into system clipboard"})
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Start replacing word you are on
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace current word'})
+vim.keymap.set("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace current word'})
+
+
+vim.keymap.set('n', '<C-W>1', '1<C-W>w', {desc = "Window 1"})
+vim.keymap.set('n', '<C-W>2', '2<C-W>w', {desc = "Window 2"})
+vim.keymap.set('n', '<C-W>3', '3<C-W>w', {desc = "Window 3"})
+vim.keymap.set('n', '<C-W>4', '4<C-W>w', {desc = "Window 4"})
+vim.keymap.set('n', '<C-W>5', '5<C-W>w', {desc = "Window 5"})
+vim.keymap.set('n', '<C-W>6', '6<C-W>w', {desc = "Window 6"})
+vim.keymap.set('n', '<C-W>7', '7<C-W>w', {desc = "Window 7"})
+vim.keymap.set('n', '<C-W>8', '8<C-W>w', {desc = "Window 8"})
+vim.keymap.set('n', '<C-W>9', '9<C-W>w', {desc = "Window 9"})
 

@@ -9,7 +9,16 @@ return{
                 cmp = true,
                 treesitter = true,
                 leap = true,
-                harpoon = true
+                harpoon = true,
+                notify = true,
+                dap = true,
+                dap_ui = true,
+                gitsigns = true,
+                alpha = true,
+                flash = true,
+                noice = true,
+                telescope = true,
+                which_key = true
             }
         })
         vim.cmd.colorscheme "catppuccin"
