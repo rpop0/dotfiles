@@ -35,3 +35,6 @@ vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 vim.g.loaded_python3_provider = 0
 
 vim.g.mapleader = " "
+
+vim.opt.spelllang = {'en_us'}
+vim.opt.spell = true
