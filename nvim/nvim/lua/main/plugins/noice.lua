@@ -9,7 +9,6 @@ return {
 
         require("notify").setup({
             stages = 'fade',
-            timeout = 1000
         })
         require("noice").setup({
             lsp = {
