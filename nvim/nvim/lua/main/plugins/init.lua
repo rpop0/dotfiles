@@ -13,9 +13,9 @@ return {
         },
         lazy = false
     },
-    -- {
-    --     'ray-x/lsp_signature.nvim',
-    --     event = "VeryLazy",
-    --     opts = {},
-    -- },
+    {
+       "m4xshen/hardtime.nvim",
+       dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+       opts = {}
+    },
 }
