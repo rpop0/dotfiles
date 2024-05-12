@@ -1,33 +1,38 @@
 local debug_plugins = {
-    {
-        'mfussenegger/nvim-dap',
-        dependencies = {
-            {
-                'nvim-neotest/nvim-nio',
-                'rcarriga/nvim-dap-ui',
-                config = function ()
-                    require('dapui').setup()
-                    local listener = require('dap').listeners
-                    listener.after.event_initialized["dapui_config"] = function() require("dapui").open() end
-                    listener.before.event_terminated["dapui_config"] = function () require("dapui").close() end
-                    listener.before.event_exited["dapui_config"] = function() require("dapui").close() end
+    'rcarriga/nvim-dap-ui',
+    dependencies = {
+        'mfussnegger/nvim-dap',
+        'nvim-neotest/nvim-nio'
+    },
+    config = function()
+        local dap = require('dap')
+        local dapui = require('dapui')
+        local wk = require('which-key')
 
-                    vim.keymap.set('n', '<leader>du', function() require('dapui').toggle() end)
-                end
+        dapui.setup()
 
-            }
-        },
-        config = function ()
-            local wk = require('which-key')
-            wk.register({
-                ["<leader>d"] = { name = "+dap"},
-                ["<leader>db"] = {function() require('dap').toggle_breakpoint() end, "Breakpoint"},
-                ["<leader>dc"] = {function() require('dap').continue() end, "Continue"},
-                ["<leader>dt"] = {function() require('dap').terminate() end, "Terminate"}
-            })
+        -- DAP UI config
+        dap.listeners.before.attach.dapui_config = function ()
+            dapui.open()
         end
-    }
+        dap.listeners.before.launch.dapui_config = function ()
+            dapui.open()
+        end
+        dap.listeners.before.event_terminated.dapui_config = function ()
+            dapui.close()
+        end
+        dap.listeners.before.event_exited.dapui_config = function ()
+            dapui.close()
+        end
 
+        wk.register({
+            ["<leader>d"] = { name = "+dap" },
+            ["<leader>db"] = { dap.toggle_breakpoint(), "Breakpoint" },
+            ["<leader>dc"] = { dap.continue(), "Continue" },
+            ["<leader>dt"] = { dap.terminate(), "Terminate" },
+            ["<leader>du"] = { dapui.toggle(), "Toggle UI"}
+        })
+    end
 }
 
 return debug_plugins
