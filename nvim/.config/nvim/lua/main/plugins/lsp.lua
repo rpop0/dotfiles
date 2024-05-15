@@ -25,10 +25,11 @@ local setup_basedpyright = function()
             basedpyright = {
                 disableOrganizeImports = true, -- ruff_lsp
                 analysis = {
-                    typeCheckingMode = 'all',
+                    typeCheckingMode = 'standard',
                     diagnosticSeverityOverrides = { -- Disabled diagnostics due to ruff conflicts
                         reportUnusedVariable = 'none',
                         reportUndefinedVariable = 'none',
+                        reportAny = 'none'
                     }
                 }
             },

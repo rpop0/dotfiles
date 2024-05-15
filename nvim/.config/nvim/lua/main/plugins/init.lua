@@ -20,5 +20,11 @@ return {
            disable_mouse = false
        }
     },
-    'lambdalisue/vim-suda'
+    'lambdalisue/vim-suda',
+    {
+        'folke/trouble.nvim',
+        dependencies = {'nvim-tree/nvim-web-devicons'},
+        opts = {}
+    }
+
 }
