@@ -1,11 +1,18 @@
 return {
-    'tpope/vim-fugitive',
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
-        opts = {} -- this is equalent to setup({}) function
+        opts = {} -- this is equivalent to setup({}) function
     },
-    'dstein64/nvim-scrollview',
+    {
+        'dstein64/nvim-scrollview',
+        dependencies = {
+            'lewis6991/gitsigns.nvim'
+        },
+        config = function ()
+            require('scrollview.contrib.gitsigns').setup()
+        end
+    },
     {
         'numToStr/Comment.nvim',
         opts = {
