@@ -24,7 +24,7 @@ local telescope = {
         })
 
         vim.keymap.set('n', '<leader>pv', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
-        vim.keymap.set('n', 'z=', '<cmd>Telescope spell_suggest<CR>')
+        vim.keymap.set('n', 'z=', '<cmd>Telescope spell_suggest<CR>', {desc = 'Spelling suggestions'})
 
         require('telescope').setup {
             defaults = {
