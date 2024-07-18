@@ -44,16 +44,13 @@ local debug_plugins = {
         end
 
 
-        wk.register({
-            ["<leader>d"] = {
-                name = "+dap",
-                b = { function() dap.toggle_breakpoint() end, "Breakpoint" },
-                c = { function() dap.continue({}) end, "Continue" },
-                t = { function() dap.terminate() end, "Terminate" },
-                u = { function() dapui.toggle() end, "Toggle UI" },
-                r = { function() dapui.float_element('repl') end, "Toggle REPL" }
-            },
-
+        wk.add({
+            {'<leader>d', group='debug'},
+                {'<leader>db', function() dap.toggle_breakpoint() end, desc='Breakpoint'},
+                {'<leader>dc', function() dap.continue({}) end, desc='Continue'},
+                {'<leader>dt', function() dap.terminate() end, desc='Terminate'},
+                {'<leader>du', function() dapui.toggle() end, desc='Toggle UI'},
+                {'<leader>dr', function() dapui.float_element('repl') end, desc='Toggle REPL'}
         })
     end
 }

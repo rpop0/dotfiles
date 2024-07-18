@@ -10,20 +10,17 @@ local telescope = {
         local builtin = require('telescope.builtin')
         local wk = require("which-key")
 
-        wk.register({
-            ["<leader>f"] = {
-                name = "+find",
-                f = {builtin.find_files, "Find file"},
-                g = {builtin.live_grep, "Live grep"},
-                b = {builtin.buffers, "Search buffers"},
-                h = {builtin.help_tags, "Search help"},
-                r = {builtin.lsp_references, "Code references"},
-                d = {builtin.lsp_definitions, "Code definitions"},
-                i = {builtin.lsp_implementations, "Code implementations"}
-            },
+        wk.add({
+            {'<leader>f', group='find'},
+            {'<leader>ff', builtin.find_files, desc='Find file'},
+            {'<leader>fg', builtin.live_grep, desc='Live grep'},
+            {'<leader>fb', builtin.buffers, desc='Search buffers'},
+            {'<leader>fh', builtin.help_tags, desc='Search help'},
+            {'<leader>fr', builtin.lsp_references, desc='Code references'},
+            {'<leader>fd', builtin.lsp_definitions, desc='Code definitions'},
+            {'<leader>fi', builtin.lsp_implementations, desc='Code implementations'}
         })
 
-        vim.keymap.set('n', '<leader>pv', ':Telescope file_browser path=%:p:h select_buffer=true<CR>')
         vim.keymap.set('n', 'z=', '<cmd>Telescope spell_suggest<CR>', {desc = 'Spelling suggestions'})
 
         require('telescope').setup {

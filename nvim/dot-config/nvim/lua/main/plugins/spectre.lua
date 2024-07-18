@@ -6,15 +6,11 @@ return {
     config = function ()
         local wk = require('which-key');
 
-        wk.register({
-            ['<leader>s'] = {
-                name = '+spectre',
-                s = { '<cmd>lua require("spectre").toggle()<CR>', "Toggle spectre" },
-                w = { '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Word"}
-            }
-
+        wk.add({
+            {'<leader>s', group='spectre'},
+            {'<leader>ss', '<cmd>lua require("spectre").toggle()<CR>', desc='Toggle spectre'},
+            {'<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', desc='Word'}
         })
-
 
     end
 }

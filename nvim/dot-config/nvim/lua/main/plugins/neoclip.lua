@@ -7,11 +7,8 @@ return {
         require('neoclip').setup()
         local wk = require('which-key')
 
-        wk.register({
-            ['<leader>f'] = {
-                name = '+find',
-                c = {'<CMD>Telescope neoclip<CR>', 'Clipboard'}
-            }
+        wk.add({
+            {'<leader>fc', '<CMD>Telescope neoclip<CR>', desc='Clipboard'}
         })
     end
 }
