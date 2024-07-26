@@ -29,7 +29,7 @@ local debug_plugins = {
 
         dap.defaults.fallback.external_terminal = {
             command = "tmux",
-            args = { "split-window", "-h", "-d", "-p", "13" }
+            args = { "split-window", "-h", "-d", "-p", "35" }
         }
 
         -- DAP UI config
@@ -42,6 +42,12 @@ local debug_plugins = {
         dap.listeners.before.event_exited.dapui_config = function()
             dapui.close()
         end
+
+        vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})
+
+        vim.keymap.set('n', '<F1>', ':DapStepOut<CR>')
+        vim.keymap.set('n', '<F2>', ':DapStepOver<CR>')
+        vim.keymap.set('n', '<F3>', ':DapStepIn<CR>')
 
 
         wk.add({
