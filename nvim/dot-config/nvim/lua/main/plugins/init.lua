@@ -25,6 +25,17 @@ return {
         'folke/trouble.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'},
         opts = {}
-    }
-
+    },
+    {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        config = function ()
+            local hardtime = require('hardtime')
+            hardtime.setup{
+                disable_mouse = false
+            }
+            local hardtime_config = require('hardtime.config')
+            table.insert(hardtime_config.config.disabled_filetypes, 'harpoon')
+        end,
+    },
 }
