@@ -38,4 +38,9 @@ return {
             table.insert(hardtime_config.config.disabled_filetypes, 'harpoon')
         end,
     },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {},
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons'}
+    }
 }
