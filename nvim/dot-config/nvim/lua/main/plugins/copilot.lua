@@ -14,7 +14,7 @@ return {
             suggestion = {
                 auto_trigger = true,
                 keymap = {
-                    accept = '<M-l>',
+                    accept = '<M-.>',
                     next = '<M-]>',
                     prev = '<M-[>',
                 }
