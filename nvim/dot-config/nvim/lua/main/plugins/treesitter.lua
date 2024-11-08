@@ -1,4 +1,4 @@
-return {
+local treesitter =  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function()
@@ -28,3 +28,10 @@ return {
         }
     end
 }
+
+local treesitter_context = {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy"
+}
+
+return {treesitter, treesitter_context}
