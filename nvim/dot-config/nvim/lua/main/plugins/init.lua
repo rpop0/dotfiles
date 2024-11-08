@@ -13,13 +13,6 @@ return {
             require('scrollview.contrib.gitsigns').setup()
         end
     },
-    {
-        'numToStr/Comment.nvim',
-        opts = {
-
-        },
-        lazy = false
-    },
     'lambdalisue/vim-suda',
     {
         'folke/trouble.nvim',
