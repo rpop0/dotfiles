@@ -45,9 +45,10 @@ local debug_plugins = {
 
         vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})
 
-        vim.keymap.set('n', '<F1>', ':DapStepOut<CR>')
+        vim.keymap.set('n', '<F1>', ':DapStepIn<CR>')
         vim.keymap.set('n', '<F2>', ':DapStepOver<CR>')
-        vim.keymap.set('n', '<F3>', ':DapStepIn<CR>')
+        vim.keymap.set('n', '<F3>', ':DapStepOut<CR>')
+        vim.keymap.set('n', '<F4>', function () dapui.float_element('repl') end)
 
 
         wk.add({
