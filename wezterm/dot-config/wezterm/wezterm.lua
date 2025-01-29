@@ -13,6 +13,8 @@ config.window_padding = {
     bottom = 0
 }
 
+config.window_decorations = 'RESIZE'
+
 config.leader = { key = 'Space', mods = 'CTRL', timeout_milliseconds = 1000}
 
 config.keys = {
