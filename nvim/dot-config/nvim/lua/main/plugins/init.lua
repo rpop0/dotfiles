@@ -39,6 +39,9 @@ return {
     {
         'sphamba/smear-cursor.nvim',
         opts = {
+            hide_target_hack = false,
+            smear_isnert_mode = true,
+            vertical_bar_cursor_insert_mode = true,
         },
     }
 }
