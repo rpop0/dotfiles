@@ -16,7 +16,7 @@ config.window_padding = {
     bottom = 0
 }
 
-config.default_prog = {'nu'}
+config.default_prog = {'fish'}
 
 config.window_background_opacity = 0.93
 
