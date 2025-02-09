@@ -5,9 +5,9 @@ return{
     priority = 1000,
     config = function()
         require("catppuccin").setup({
-            transparent_background = true,
+            transparent_background = false,
             integrations = {
-                cmp = true,
+                blink_cmp = true,
                 treesitter = true,
                 leap = true,
                 harpoon = true,
