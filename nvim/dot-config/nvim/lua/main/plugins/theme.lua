@@ -18,7 +18,6 @@ return{
                 alpha = true,
                 flash = true,
                 noice = true,
-                telescope = true,
                 which_key = true
             }
         })

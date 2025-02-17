@@ -43,5 +43,5 @@ return {
             smear_isnert_mode = true,
             vertical_bar_cursor_insert_mode = true,
         },
-    }
+    },
 }
