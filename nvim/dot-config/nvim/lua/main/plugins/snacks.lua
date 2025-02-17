@@ -18,7 +18,6 @@ return {
             {'<leader>fh', function() snacks.picker.help() end, desc='Help'},
             {'<leader>fh', function() snacks.picker.help() end, desc='Help'},
             {'<leader>fs', function() snacks.picker.spelling() end, desc='Spelling'},
-            {'<leader>fc', function() snacks.picker.cliphist() end, desc='Spelling'},
 
             --- LSP
             {'<leader>fr', function() snacks.picker.lsp_references() end, desc='LSP References'},
