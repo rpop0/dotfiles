@@ -17,7 +17,15 @@ return {
     {
         'folke/trouble.nvim',
         dependencies = {'nvim-tree/nvim-web-devicons'},
-        opts = {}
+        config = function ()
+            require('trouble').setup{}
+            local wk = require('which-key')
+            wk.add({
+                {'<leader>x', group='trouble'},
+                {'<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', desc="Project diagnostics"},
+                {'<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', desc="Buffer diagnostics"},
+            })
+        end
     },
     {
         "m4xshen/hardtime.nvim",
