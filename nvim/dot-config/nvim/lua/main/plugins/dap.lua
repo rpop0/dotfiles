@@ -8,10 +8,11 @@ local debug_plugins = {
     config = function()
         local dap = require('dap')
         local dapui = require('dapui')
-        local dap_virtual_text = require('nvim-dap-virtual-text')
         local wk = require('which-key')
-
-        dap_virtual_text.setup()
+        require('nvim-dap-virtual-text').setup {
+            virt_text_pos = 'eol',
+            commented = true
+        }
 
         dapui.setup({
             controls = {
