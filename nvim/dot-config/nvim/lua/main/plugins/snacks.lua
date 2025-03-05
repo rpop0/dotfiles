@@ -19,6 +19,9 @@ return {
             {'<leader>fh', function() snacks.picker.help() end, desc='Help'},
             {'<leader>fs', function() snacks.picker.spelling() end, desc='Spelling'},
 
+            { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
+            { "<leader>S",  function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
+
             --- LSP
             {'<leader>fr', function() snacks.picker.lsp_references() end, desc='LSP References'},
             {'<leader>fd', function() snacks.picker.lsp_definitions() end, desc='LSP Definitions'},
