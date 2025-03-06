@@ -33,16 +33,30 @@ return {
 
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer'},
+
                 per_filetype = {
-                    ['dap-repl'] = {'dap'}
+                    ['dap-repl'] = {'dap'},
+                    org = {'orgmode'}
                 },
+
                 providers = {
                     dap = {
                         name = 'dap',
                         module = 'blink.compat.source',
+                    },
+                    orgmode = {
+                        name = 'Orgmode',
+                        module = 'orgmode.org.autocompletion.blink',
+                        fallbacks = {'buffer'},
                     }
                 }
             },
+            cmdline = {
+                completion = {
+                    ghost_text = {enabled = false},
+                    menu = {auto_show = true}
+                }
+            }
 
         },
         opts_extended = { 'sources.default' }
