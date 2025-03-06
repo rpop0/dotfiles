@@ -15,6 +15,7 @@ config.window_padding = {
     top = 0,
     bottom = 0
 }
+config.enable_scroll_bar = true
 
 config.default_prog = {'fish'}
 
