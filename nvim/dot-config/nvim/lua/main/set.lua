@@ -37,3 +37,6 @@ vim.g.loaded_python3_provider = 0
 vim.g.mapleader = " "
 
 vim.opt.spell = true
+
+-- Set conceal level, primarily for orgmode
+vim.opt.conceallevel = 2
