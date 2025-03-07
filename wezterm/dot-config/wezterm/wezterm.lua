@@ -17,7 +17,13 @@ config.window_padding = {
 }
 config.enable_scroll_bar = true
 
-config.default_prog = {'fish'}
+local shell = 'fish'
+
+if wezterm.target_triple == 'aarch64-apple-darwin' then
+  shell = "/opt/homebrew/bin/fish"
+end
+
+config.default_prog = {shell}
 
 config.window_background_opacity = 0.93
 
