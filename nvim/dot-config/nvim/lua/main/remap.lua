@@ -43,3 +43,6 @@ vim.keymap.set('n', '<C-W>7', '7<C-W>w', {desc = "Window 7"})
 vim.keymap.set('n', '<C-W>8', '8<C-W>w', {desc = "Window 8"})
 vim.keymap.set('n', '<C-W>9', '9<C-W>w', {desc = "Window 9"})
 
+if vim.g.neovide == true then
+    vim.keymap.set({'i'}, '<C-S-V>', '<C-R>+', { desc = 'Paste system clipboard'})
+end
