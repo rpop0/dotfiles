@@ -5,34 +5,15 @@ local dap = {
     },
     ft = 'python',
     config = function()
-        local debugpyPath = require('mason-registry').get_package('debugpy'):get_install_path() .. "/venv/bin/python3"
-        require('dap-python').setup(debugpyPath, {
-            console = "externalTerminal"
+        -- Mason now automatically adds the bins from $MASON (~./local/share/mason/bin)
+        -- to the path, see https://github.com/mason-org/mason.nvim/blob/main/CHANGELOG.md#packageget_install_path-has-been-removed
+        require('dap-python').setup('debugpy-adapter', {
+            -- console = "externalTerminal"
         })
     end
-}
-
-local visidata = {
-    'Willem-J-an/visidata.nvim',
-    dependencies = {
-        'mfussenegger/nvim-dap-python',
-        'mfussenegger/nvim-dap'
-    },
-    ft = 'python',
-    config = function ()
-        local wk = require('which-key')
-        local vd = require("visidata")
-
-        wk.add({
-            {'<leader>d', group='debug'},
-                {'<leader>dp', vd.visualize_pandas_df, desc='View dataframe'},
-        })
-    end
-
 }
 
 return {
-    dap,
-    visidata
-
+    dap
 }
+
