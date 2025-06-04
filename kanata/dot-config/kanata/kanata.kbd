@@ -13,7 +13,7 @@
 
 ;; Define cap alias for escape on pressed and left control on held
 (defalias
-    cap (tap-hold 200 200 esc lctl)
+    cap (tap-hold 150 150 esc lctl)
 )
 
 (deflayermap (base-layer)
