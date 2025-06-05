@@ -31,6 +31,7 @@ local treesitter =  {
 
 local treesitter_context = {
     "nvim-treesitter/nvim-treesitter-context",
+    opts = {},
     event = "VeryLazy"
 }
 
