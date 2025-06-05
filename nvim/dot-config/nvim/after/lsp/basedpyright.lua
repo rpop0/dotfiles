@@ -11,9 +11,6 @@ return {
                     reportUnusedVariable = 'none',
                     reportUndefinedVariable = 'none',
                     reportAny = 'none',
-
-                    -- Non ruff
-                    reportUnusedCallResult = 'none'
                 }
             }
 
