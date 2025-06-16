@@ -43,3 +43,4 @@ vim.opt.spell = true
 
 -- Set conceal level, primarily for orgmode
 vim.opt.conceallevel = 2
+vim.opt.jumpoptions = 'stack'
