@@ -54,4 +54,8 @@ return {
             vertical_bar_cursor_insert_mode = true,
         },
     },
+    {
+        'sindrets/diffview.nvim',
+        opts = {}
+    }
 }
