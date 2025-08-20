@@ -12,8 +12,8 @@ return {
         local wk = require('which-key')
         wk.add({
             {'<leader>f', group='find'},
-            {'<leader>ff', function() snacks.picker.smart() end, desc='Find file'},
-            {'<leader>fg', function() snacks.picker.grep() end, desc='Grep'},
+            {'ff', function() snacks.picker.smart() end, desc='Find file'},
+            {'fg', function() snacks.picker.grep() end, desc='Grep'},
             {'<leader>fb', function() snacks.picker.buffers() end, desc='Buffers'},
             {'<leader>fh', function() snacks.picker.help() end, desc='Help'},
             {'<leader>fh', function() snacks.picker.help() end, desc='Help'},
