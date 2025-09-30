@@ -9,7 +9,7 @@ local mason_lspconfig = {
     -- Ensures the LSPs are installed and also auto-enables all installed LSPs.
     -- Uses the default configuration from nvim-lspconfig if no config is found in after/lsp
     opts = {
-        ensure_installed = { 'basedpyright', 'ruff', 'lua_ls'}
+        ensure_installed = { 'ruff', 'lua_ls'}
     },
     dependencies = {
         'neovim/nvim-lspconfig'
