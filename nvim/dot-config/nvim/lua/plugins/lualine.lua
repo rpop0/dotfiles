@@ -1,3 +1,10 @@
+local function shorten_branch(branch)
+    if string.len(branch) > 20 then
+        return string.sub(branch, 1, 30) .. '...'
+    end
+    return branch
+end
+
 return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -11,6 +18,9 @@ return {
                 theme = 'catppuccin'
             },
             sections = {
+                lualine_b = {
+                    { 'branch', fmt = shorten_branch }
+                },
                 lualine_c = {
                     {
                         'filename',
