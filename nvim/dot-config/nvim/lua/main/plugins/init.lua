@@ -37,6 +37,7 @@ return {
             }
             local hardtime_config = require('hardtime.config')
             table.insert(hardtime_config.config.disabled_filetypes, 'harpoon')
+            table.insert(hardtime_config.config.disabled_filetypes, 'org')
         end,
     },
     {
