@@ -13,7 +13,6 @@ return {
                     {"<leader>gb", function() gs.blame_line{full=true} end, desc="Git blame hunk"},
                     {"<leader>gs", gs.stage_hunk, desc="Stage hunk"},
                     {"<leader>gu", gs.undo_stage_hunk, desc="Undo stage hunk"},
-                    {"<leader>gd", gs.diffthis, desc="Show diffs"}
 
                 })
                 -- Text objects
