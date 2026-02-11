@@ -1,11 +1,37 @@
 line-length = 120
+target-version = 'py37'
 
 [lint]
 select = [
     "ALL",
 ]
+preview = false
 
 ignore = [
+    # NXP STUFF
+    'PT009',
+    'PTH', # Ignore all pathlib
+    # Pathlib things
+    'ANN001',
+    'ANN204',
+    'ANN205',
+    'ANN202',
+    'ANN201',
+    'DTZ005',
+
+    # End NXP STUFF
+
+    'PLR6104', # https://github.com/astral-sh/ruff/issues/12890
+    'PLR0904',
+
+    'CPY001',
+    'UP032', # F strings instead of .format
+
+    'LOG015', # Root logger
+    'G001', # Format in log
+    'G004', # F-string in log
+
+
     "S101", # assert
     "T201", # print
 
@@ -44,8 +70,6 @@ ignore = [
     "D401",
     "D415",
 
-    "ANN101", # self type annotation
-    "ANN102", # cls type annotation
     "FIX002", # to-do messages
     "TD001",
     "TD002",
@@ -53,6 +77,9 @@ ignore = [
     "TD004",
     "TD005"
 ]
+
+[lint.pydocstyle]
+convention = 'numpy'
 
 [format]
 quote-style = 'single'
