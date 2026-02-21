@@ -271,10 +271,10 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "swww-daemon" "--namespace" "main"
-spawn-at-startup "swww-daemon" "--namespace" "backdrop"
-spawn-at-startup "swww" "img" "--namespace" "main"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda.jpg"
-spawn-at-startup "swww" "img" "--namespace" "backdrop"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda_blur.jpg"
+spawn-at-startup "awww-daemon" "--namespace" "main"
+spawn-at-startup "awww-daemon" "--namespace" "backdrop"
+spawn-at-startup "awww" "img" "--namespace" "main"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda.jpg"
+spawn-at-startup "awww" "img" "--namespace" "backdrop"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda_blur.jpg"
 spawn-at-startup "swaync"
 
 // start polkit for password prompts
@@ -625,7 +625,7 @@ environment {
 }
 
 layer-rule {
-    match namespace="^swww-daemonbackdrop$"
+    match namespace="^awww-daemonbackdrop$"
     place-within-backdrop true
 }
 
