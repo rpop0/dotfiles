@@ -102,16 +102,16 @@ input {
     position x=1280 y=0
 }
 
-output "DP-1"{ // Left monitor
-    mode "2560x1440@165.001"
-    position x=2048 y=0
-    scale 1.25
-}
+//output "DP-1"{ // Left monitor
+   // mode "2560x1440@165.001"
+  //  position x=2048 y=0
+ //   scale 1.25
+//}
 
-output "DP-2"{
-    mode "2560x1440@165.001"
-    scale 1.25
-}
+//output "DP-2"{
+ //   mode "2560x1440@165.001"
+  //  scale 1.25
+//}
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -270,12 +270,12 @@ layout {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
-spawn-at-startup "awww-daemon" "--namespace" "main"
-spawn-at-startup "awww-daemon" "--namespace" "backdrop"
-spawn-at-startup "awww" "img" "--namespace" "main"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda.jpg"
-spawn-at-startup "awww" "img" "--namespace" "backdrop"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda_blur.jpg"
-spawn-at-startup "swaync"
+// spawn-at-startup "waybar" trying dms
+// spawn-at-startup "awww-daemon" "--namespace" "main"
+// spawn-at-startup "awww-daemon" "--namespace" "backdrop"
+// spawn-at-startup "awww" "img" "--namespace" "main"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda.jpg"
+// spawn-at-startup "awww" "img" "--namespace" "backdrop"  "/home/stringer/Pictures/Wallpapers/Arizona_night_by_Orbite_Lambda_blur.jpg"
+// spawn-at-startup "swaync"
 
 // start polkit for password prompts
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
@@ -328,6 +328,29 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+}
+
+// Indicate screencasted windows with red colors.
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+
+    border {
+        inactive-color "#7d0d2d"
+    }
+
+    shadow {
+        color "#7d0d2d70"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
 }
 
 // Example: block out two password managers from screen capture.
@@ -612,7 +635,11 @@ binds {
 
 environment {
     // KDE Theming for QT apps
-    QT_QPA_PLATFORMTHEME "kde"
+    // QT_QPA_PLATFORMTHEME "kde"
+
+    // Passthrough theming
+    QT_QPA_PLATFORMTHEME "gtk3"
+    QT_QPA_PLATFORMTHEME_QT6 "gtk3"
 
     // Nvidia stuff, taken from Hyprland
     LIBVA_DRIVER_NAME "nvidia"
@@ -625,7 +652,10 @@ environment {
 }
 
 layer-rule {
-    match namespace="^awww-daemonbackdrop$"
+    match namespace="^dms:blurwallpaper$"
     place-within-backdrop true
 }
 
+include "dms/outputs.kdl"
+
+include "dms/cursor.kdl"
