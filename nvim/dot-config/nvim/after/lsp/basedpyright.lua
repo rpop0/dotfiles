@@ -11,6 +11,8 @@ return {
                     reportUnusedVariable = 'none',
                     reportUndefinedVariable = 'none',
                     reportAny = 'none',
+                    reportUnusedCallResult = 'none',
+                    reportUnannotatedClassAttribute = 'none'
                 }
             }
 
