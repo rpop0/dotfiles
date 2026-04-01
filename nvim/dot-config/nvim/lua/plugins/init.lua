@@ -48,6 +48,7 @@ return {
     },
     {
         'sphamba/smear-cursor.nvim',
+        enabled = false,
         opts = {
             hide_target_hack = false,
             smear_isnert_mode = true,

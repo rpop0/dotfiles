@@ -10,10 +10,29 @@ local dap = {
         require('dap-python').setup('debugpy-adapter', {
             -- console = "externalTerminal"
         })
+        table.insert(require('dap').configurations.python, {
+            type = 'python',
+            request = 'launch',
+            name = 'module',
+
+            module = function ()
+                -- Convert the current file path to module notation.
+                local path = vim.fn.expand('%:.:r') -- Relative path without extension
+                return path:gsub('/', '.')
+            end,
+            args = function()
+                local args_string = vim.fn.input('args')
+                local utils = require("dap.utils")
+                if utils.splitstr and vim.fn.has("nvim-0.10") == 1 then
+                    return utils.splitstr(args_string)
+                end
+                return vim.split(args_string, " +")
+            end,
+
+        })
     end
 }
 
 return {
     dap
 }
-

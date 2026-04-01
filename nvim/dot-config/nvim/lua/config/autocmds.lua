@@ -15,5 +15,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
             { buffer = event.buf, remap = false, desc = "Next diagnostic" })
         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end,
             { buffer = event.buf, remap = false, desc = "Previous diagnostic" })
+
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        if client and client:supports_method('textDocument/foldingRange') then
+            local win = vim.api.nvim_get_current_win()
+            vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+        end
     end
 })
+
+vim.api.nvim_create_autocmd('BufWinLeave', {
+    pattern = '*',
+    callback = function()
+        if vim.bo.filetype ~= '' and vim.bo.buftype == '' then
+            vim.cmd('silent! mkview')
+        end
+    end
+})
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+    pattern = '*',
+    callback = function ()
+        if vim.bo.filetype ~= '' and vim.bo.buftype == '' then
+            vim.cmd('silent! loadview')
+        end
+    end
+})
+

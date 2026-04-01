@@ -9,9 +9,21 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- When joining the line below with J, cursor stays in place
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Keep cursor in the center when jumping with CTRL+d/u
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
+-- Keep cursor in the middle when scrolling. https://github.com/folke/snacks.nvim/discussions/1030
+vim.keymap.set("n", "<C-d>", function()
+  vim.wo.scrolloff = 999
+  vim.defer_fn(function()
+    vim.wo.scrolloff = 8
+  end, 500)
+  return "<c-d>"
+end, { expr = true })
+vim.keymap.set("n", "<C-u>", function()
+  vim.wo.scrolloff = 999
+  vim.defer_fn(function()
+    vim.wo.scrolloff = 8
+  end, 500)
+  return "<c-u>"
+end, { expr = true })
 
 -- Keep search terms in the middle
 vim.keymap.set("n", "n", "nzzzv")

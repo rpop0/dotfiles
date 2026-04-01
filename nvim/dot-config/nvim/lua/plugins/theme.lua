@@ -18,9 +18,9 @@ return{
                 alpha = true,
                 flash = true,
                 noice = true,
-                which_key = true
+                which_key = true,
             }
         })
-        vim.cmd.colorscheme "catppuccin"
+        vim.cmd.colorscheme "catppuccin-nvim"
     end
 }

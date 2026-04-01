@@ -1,9 +1,3 @@
-local mason_plugin = {
-    'williamboman/mason.nvim',
-    lazy = false,
-    config = true,
-}
-
 local mason_lspconfig = {
     'mason-org/mason-lspconfig.nvim',
     -- Ensures the LSPs are installed and also auto-enables all installed LSPs.
@@ -12,11 +6,11 @@ local mason_lspconfig = {
         ensure_installed = { 'ruff', 'lua_ls'}
     },
     dependencies = {
+        { "mason-org/mason.nvim", opts = {} },
         'neovim/nvim-lspconfig'
     },
 }
 
 return {
-    mason_plugin,
     mason_lspconfig
 }
