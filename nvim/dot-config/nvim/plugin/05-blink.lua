@@ -45,5 +45,8 @@ require('blink.cmp').setup({
             menu = {auto_show = true}
         }
     },
+    signature = {
+        enabled = true
+    }
 
 })

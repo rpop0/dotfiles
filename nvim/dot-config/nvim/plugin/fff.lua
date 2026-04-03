@@ -1,6 +1,5 @@
 vim.api.nvim_create_autocmd('PackChanged', {
   callback = function(event)
-    vim.print('bepis')
     if event.data.updated and event.data.spec.name == 'fff.nvim' then
       require('fff.download').download_or_build_binary()
     end
