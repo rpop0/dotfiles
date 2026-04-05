@@ -5,16 +5,7 @@ require('mini.ai').setup()
 require('mini.comment').setup()
 require('mini.indentscope').setup()
 require('mini.notify').setup()
-require('mini.surround').setup({
-    mappings = {
-        add = 'gsa',
-        delete = 'gsd',
-        find = 'gsf',
-        find_left = 'gsF',
-        highlight = 'gsh',
-        replace = 'gsr',
-        update_n_lines = 'gsn'
-    }
-})
+require('mini.surround').setup()
 require('mini.icons').setup()
+require('mini.operators').setup()
 MiniIcons.mock_nvim_web_devicons()
