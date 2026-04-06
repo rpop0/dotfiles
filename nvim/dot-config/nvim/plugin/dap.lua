@@ -67,6 +67,7 @@ table.insert(require('dap').configurations.python, {
         end
         return vim.split(args_string, " +")
     end,
+    console = 'integratedTerminal'
 
 })
 
