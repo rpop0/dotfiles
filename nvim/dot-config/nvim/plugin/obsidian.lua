@@ -6,6 +6,10 @@ require('obsidian').setup({
         {
             name = 'work',
             path = '~/vaults/work'
+        },
+        {
+            name = 'Notes',
+            path = '~/Documents/Notes'
         }
     }
 })
