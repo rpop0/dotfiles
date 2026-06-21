@@ -102,7 +102,7 @@ binds {
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+E { quit; }
     Alt+space { spawn "rofi" "-show" "drun" "-show-icons"; }
-    Mod+Q hotkey-overlay-title="Open a Terminal: wezterm" { spawn "wezterm"; }
+    Mod+Q hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Super+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMicMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
